@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Rajasthan — CS Trips & Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#f0d9b5;
+    --accent:#c97b2e;
+    --deep:#3b2f2f;
+    --card:#fff;
+    --muted:#776a61;
+  }
+  *{ box-sizing:border-box }
+  body{ margin:0; font-family:"Poppins",sans-serif; background:#fff; color:var(--deep); }
+
+  /* HERO / DESERT */
+  .hero {
+    min-height:56vh;
+    background-image: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.05)), url('images/raj1.jpg');
+    background-size:cover; background-position:center;
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 20px;
+  }
+  .hero-inner{ max-width:980px; color:#fff; }
+  .hero h1{ font-size:44px; margin:0 0 12px; text-shadow:0 8px 40px rgba(0,0,0,0.45) }
+  .hero p{ margin:0; font-size:18px; color:#fffdf6 }
+
+  /* container */
+  .wrap{ max-width:1100px; margin:-60px auto 60px; padding:18px; }
+
+  /* two-column layout */
+  .layout{ display:grid; grid-template-columns: 1fr 360px; gap:28px; align-items:start; }
+  @media(max-width:980px){ .layout{ grid-template-columns:1fr; margin-top:18px } .wrap{ margin:18px } }
+
+  /* main cards */
+  .card { background:var(--card); border-radius:12px; box-shadow:0 8px 30px rgba(0,0,0,0.08); overflow:hidden }
+  .section-title { display:flex; justify-content:space-between; align-items:end; padding:18px 20px; }
+  .section-title h2{ margin:0; color:var(--deep) }
+  .section-title p{ margin:0; color:var(--muted); font-size:14px }
+
+  .cards-grid { padding:18px; display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+
+  .hotel .thumb{ height:160px; width:100%; object-fit:cover; display:block }
+  .hotel .meta{ padding:12px 14px }
+  .hotel h3{ margin:0 0 6px; font-size:18px }
+  .hotel p{ margin:0; color:var(--muted); font-size:14px }
+
+  /* sidebar */
+  .sidebar { position:sticky; top:86px; align-self:start; }
+  .book-box { background:linear-gradient(180deg,#fffaf2,#fff4e5); padding:18px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.06) }
+  .book-box h4{ margin:0 0 8px; color:var(--deep) }
+  .book-box label{ display:block; font-size:13px; color:var(--muted); margin-top:10px }
+  .book-box input, .book-box select { width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #eee; }
+
+  .book-btn { margin-top:12px; padding:12px; width:100%; border:none; background:var(--accent); color:white; border-radius:8px; font-weight:700; cursor:pointer }
+
+  /* map */
+  .map { height:260px; border-radius:8px; overflow:hidden; margin-top:14px; border:1px solid #eee }
+
+  /* place list */
+  .place { display:flex; gap:12px; padding:12px 14px; border-radius:8px; align-items:center; transition:background .18s }
+  .place:hover{ background:#fff8f0 }
+  .place img{ width:92px; height:70px; object-fit:cover; border-radius:8px }
+
+  /* footer */
+  footer{ text-align:center; padding:28px 12px; color:var(--muted) }
+
+  /* subtle animations */
+  .fade-up { animation:fadeUp .7s ease both }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(12px) } to{ opacity:1; transform:none } }
+
+  /* booking modal */
+  .modal {
+    display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;
+    z-index:2000; padding:20px;
+  }
+  .modal .modal-card { width:520px; max-width:100%; background:#fff; border-radius:12px; padding:18px }
+  .modal h3{ margin:0 0 8px }
+  .modal .row{ display:flex; gap:8px; margin-top:10px }
+  .modal input, .modal select { flex:1; padding:10px; border-radius:8px; border:1px solid #eee }
+  .modal .actions{ display:flex; gap:8px; margin-top:14px; justify-content:flex-end }
+
+</style>
+</head>
+<body>
+
+  <!-- desert hero -->
+  <section class="hero" aria-label="Rajasthan hero">
+    <div class="hero-inner">
+      <h1>Rajasthan — Land of Royalty & Desert Wonders</h1>
+      <p>Palaces, forts, heritage hotels, golden deserts and unforgettable cultural experiences.</p>
+    </div>
+  </section>
+
+  <!-- main content -->
+  <div class="wrap">
+    <div class="layout">
+
+      <!-- main column -->
+      <div>
+        <!-- best hotels -->
+        <div class="card fade-up hotel">
+          <div class="section-title">
+            <h2>Top Hotels in Rajasthan</h2>
+            <p>Luxury stays with royal hospitality</p>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Hotel 1 -->
+            <div>
+              <img class="thumb" src="images/rajhotel1.jpg" alt="Taj Lake Palace">
+              <div class="meta">
+                <h3>Taj Lake Palace — Udaipur</h3>
+                <p>Iconic floating palace offering serene lake views & royal service.</p>
+                <div style="margin-top:10px">
+                  <button class="book-btn" onclick="openBooking('Taj Lake Palace — Udaipur')">Book Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div>
+              <img class="thumb" src="images/rajhotel2.jpg" alt="Rambagh Palace">
+              <div class="meta">
+                <h3>Rambagh Palace — Jaipur</h3>
+                <p>Former royal residence with palace lawns and luxurious rooms.</p>
+                <div style="margin-top:10px">
+                  <button class="book-btn" onclick="openBooking('Rambagh Palace — Jaipur')">Book Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel 3 -->
+            <div>
+              <img class="thumb" src="images/rajhotel3.jpg" alt="Umaid Bhawan">
+              <div class="meta">
+                <h3>Umaid Bhawan Palace — Jodhpur</h3>
+                <p>Grand palace hotel with museum, gardens, and heritage dining.</p>
+                <div style="margin-top:10px">
+                  <button class="book-btn" onclick="openBooking('Umaid Bhawan Palace — Jodhpur')">Book Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- tourist places -->
+        <div class="card fade-up" style="margin-top:18px">
+          <div class="section-title">
+            <h2>Must-Visit Places</h2>
+            <p>Heritage sites, forts and desert towns</p>
+          </div>
+
+          <div style="padding:12px">
+            <div class="place">
+              <img src="images/r1.jpg" alt="Hawa Mahal">
+              <div>
+                <strong>Hawa Mahal — Jaipur</strong>
+                <div style="color:var(--muted)">The Palace of Winds — intricate latticework & royal history.</div>
+              </div>
+            </div>
+
+            <div class="place">
+              <img src="images/r2.jpg" alt="Amber Fort">
+              <div>
+                <strong>Amber Fort — Jaipur</strong>
+                <div style="color:var(--muted)">Hilltop fort with stunning courtyards and light shows.</div>
+              </div>
+            </div>
+
+            <div class="place">
+              <img src="images/r5.jpg" alt="Jaisalmer Fort">
+              <div>
+                <strong>Jaisalmer Fort</strong>
+                <div style="color:var(--muted)">Golden sandstone fort rising from the Thar Desert.</div>
+              </div>
+            </div>
+
+            <div class="place">
+              <img src="images/r7.jpg" alt="Thar Desert">
+              <div>
+                <strong>Thar Desert — Sam Sand Dunes</strong>
+                <div style="color:var(--muted)">Camel safaris, desert camps and spectacular sunsets.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- sidebar -->
+      <aside class="sidebar">
+        <div class="card book-box fade-up">
+          <h4>Plan Your Rajasthan Trip</h4>
+          <div style="color:var(--muted); font-size:14px">Quick booking enquiry</div>
+
+          <label for="pax">Travel date</label>
+          <input id="date" type="date">
+
+          <label for="nights">Nights</label>
+          <select id="nights">
+            <option>3 nights</option>
+            <option>4 nights</option>
+            <option>5 nights</option>
+            <option>7 nights</option>
+          </select>
+
+          <label for="people">Travellers</label>
+          <input id="people" type="number" min="1" value="2">
+
+          <button class="book-btn" onclick="openBooking('Custom Rajasthan Package')">Send Enquiry</button>
+
+          <div class="map" aria-hidden="false" style="margin-top:14px">
+            <!-- Google Maps "Rajasthan" search embed -->
+            <iframe
+              src="https://www.google.com/maps?q=Rajasthan&output=embed"
+              width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px; padding:14px">
+          <strong>Helpful info</strong>
+          <p style="color:var(--muted); margin-top:8px; font-size:14px">Best time to visit: Oct–Mar • Language: Hindi/English • Currency: INR</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer style="padding:28px;text-align:center;color:var(--muted)">
+    © 2025 CS Trips & Tours — Rajasthan guide
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="bookingModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <h3>Book / Enquire</h3>
+      <p id="selectedItem" style="color:var(--muted)"></p>
+
+      <div class="row">
+        <input id="bname" placeholder="Your name">
+        <input id="bphone" placeholder="Phone or email">
+      </div>
+
+      <div class="row" style="margin-top:8px">
+        <select id="bpeople">
+          <option>2 persons</option>
+          <option>3 persons</option>
+          <option>4 persons</option>
+        </select>
+        <input type="date" id="bdate">
+      </div>
+
+      <div class="actions">
+        <button onclick="submitBooking()" class="book-btn">Send Enquiry</button>
+        <button onclick="closeBooking()" style="background:#eee;border:none;padding:10px;border-radius:8px;margin-left:8px">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // booking modal functions
+  function openBooking(item){
+    document.getElementById('selectedItem').textContent = item;
+    const m = document.getElementById('bookingModal');
+    m.style.display = 'flex';
+    m.setAttribute('aria-hidden','false');
+  }
+  function closeBooking(){
+    const m = document.getElementById('bookingModal');
+    m.style.display = 'none';
+    m.setAttribute('aria-hidden','true');
+  }
+  function submitBooking(){
+    const name = document.getElementById('bname').value || 'Guest';
+    const phone = document.getElementById('bphone').value || 'Not provided';
+    const item = document.getElementById('selectedItem').textContent;
+    alert('Thank you, ' + name + '\\nWe received your enquiry for: ' + item + '\\nWe will contact you at: ' + phone);
+    closeBooking();
+  }
+
+  // close modal by clicking outside
+  document.getElementById('bookingModal').addEventListener('click', function(e){
+    if(e.target === this) closeBooking();
+  });
+</script>
+
+</body>
+</html>

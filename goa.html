@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Goa — CS Trips & Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --sea:#0077b6; --sun:#ffb703; --card:#fff; --muted:#51657a; }
+  *{box-sizing:border-box}
+  body{ margin:0; font-family:'Poppins',sans-serif; background:#f6fbff; color:#073b4c }
+  .hero{
+    min-height:52vh;
+    background:linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.05)),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+    display:flex; align-items:center; justify-content:center; color:white; text-align:center; padding:80px 20px;
+  }
+  .hero h1{font-size:40px;margin:0 0 8px;text-shadow:0 8px 30px rgba(0,0,0,0.35)}
+  .hero p{ margin:0 0 18px; font-size:16px }
+  .wrap{ max-width:1100px; margin:-40px auto 60px; padding:18px }
+  .layout{ display:grid; grid-template-columns:1fr 320px; gap:24px; }
+  @media(max-width:900px){ .layout{ grid-template-columns:1fr } .wrap{ margin:10px } }
+
+  .card{ background:var(--card); border-radius:12px; box-shadow:0 12px 30px rgba(7,59,76,0.08); overflow:hidden }
+  .section-title{ padding:16px 18px; display:flex; justify-content:space-between; align-items:end }
+  .section-title h2{ margin:0; color:#073b4c }
+  .grid{ padding:16px; display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) }
+  .thumb{ width:100%; height:150px; object-fit:cover; display:block }
+  .meta{ padding:12px }
+  .meta h3{ margin:0 0 6px; font-size:18px }
+  .meta p{ margin:0; color:var(--muted); font-size:14px }
+
+  .sidebar{ position:sticky; top:86px; align-self:start }
+  .book-box{ padding:16px; border-radius:10px; background:linear-gradient(180deg,#eaf6ff,#fff); box-shadow:0 8px 22px rgba(0,119,182,0.06) }
+  .book-box label{ font-size:13px; color:var(--muted); display:block; margin-top:8px }
+  input, select{ width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #e6f0f6 }
+  .book-btn{ margin-top:12px; width:100%; padding:12px; border-radius:8px; border:none; background:var(--sea); color:white; font-weight:700; cursor:pointer }
+
+  .map{height:220px;border-radius:8px;margin-top:12px;overflow:hidden;border:1px solid #e6f0f6}
+
+  footer{ text-align:center;padding:24px;color:var(--muted) }
+
+  .modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000 }
+  .modal-card{ width:520px; max-width:96%; background:#fff; padding:18px; border-radius:10px }
+  .modal .row{ display:flex; gap:8px }
+  .modal input, .modal select{ flex:1; padding:10px; border-radius:8px; border:1px solid #eee }
+  .actions{ display:flex; justify-content:flex-end; gap:8px; margin-top:12px }
+</style>
+</head>
+<body>
+
+<header style="padding:14px 20px; background:linear-gradient(90deg, rgba(0,119,182,0.06), rgba(255,184,3,0.03)); position:sticky;top:0;z-index:50">
+  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center">
+    <div style="font-weight:700;color:var(--sea)">CS Trips & Tours</div>
+    <div><a href="index.html" style="text-decoration:none;color:#073b4c;font-weight:600">Home</a></div>
+  </div>
+</header>
+
+<section class="hero" aria-label="Goa hero">
+  <div>
+    <h1>Goa — Sun, Sand & Sea</h1>
+    <p>Beaches, water sports, seafood and a laid-back coastal vibe.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <div class="card">
+        <div class="section-title">
+          <h2>Top Hotels — Goa</h2>
+          <p>Beachfront luxury & resorts</p>
+        </div>
+        <div class="grid">
+          <div>
+            <img class="thumb" src="images/g1.jpg" alt="">
+            <div class="meta"><h3>Taj Exotica</h3><p>Benaulim — Luxury beachfront resort</p><button style="margin-top:8px" class="book-btn" onclick="openBook('Taj Exotica')">Book Now</button></div>
+          </div>
+
+          <div>
+            <img class="thumb" src="images/g2.jpg" alt="">
+            <div class="meta"><h3>Planet Hollywood</h3><p>Vagator — Modern resort with entertainment</p><button class="book-btn" style="margin-top:8px" onclick="openBook('Planet Hollywood')">Book Now</button></div>
+          </div>
+
+          <div>
+            <img class="thumb" src="images/g5.jpg" alt="">
+            <div class="meta"><h3>ITC Grand Goa</h3><p>Arossim — Luxury resort & spa</p><button class="book-btn" style="margin-top:8px" onclick="openBook('ITC Grand Goa')">Book Now</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <div class="section-title">
+          <h2>Best Beaches & Things to Do</h2>
+          <p>Beaches, sunset points & water sports</p>
+        </div>
+        <div style="padding:12px">
+          <div style="display:flex;gap:12px;padding:10px;border-radius:8px"><img src="images/g6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Baga Beach</strong><div style="color:var(--muted)">Popular for nightlife & water sports</div></div></div>
+
+          <div style="display:flex;gap:12px;padding:10px;border-radius:8px;margin-top:8px"><img src="images/g7.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Palolem</strong><div style="color:var(--muted)">Calm beaches in South Goa</div></div></div>
+
+          <div style="display:flex;gap:12px;padding:10px;border-radius:8px;margin-top:8px"><img src="images/g8.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Vagator</strong><div style="color:var(--muted)">Cliffs, parties & seafood shacks</div></div></div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="card book-box">
+        <h4 style="margin:0">Quick Enquiry</h4>
+        <div style="color:var(--muted);font-size:13px;margin-top:6px">Plan your Goa trip</div>
+        <label>Travel date</label><input type="date" id="gdate">
+        <label>Duration</label><select id="gdur"><option>3 nights</option><option>4 nights</option><option>5 nights</option></select>
+        <label>Travellers</label><input type="number" id="gpeople" min="1" value="2">
+        <button class="book-btn" onclick="openBook('Custom Goa Package')">Send Enquiry</button>
+
+        <div class="map"><iframe src="https://www.google.com/maps?q=Goa&output=embed" width="100%" height="100%" style="border:0"></iframe></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>© 2025 CS Trips & Tours — Goa</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal" aria-hidden="true" style="display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);position:fixed;inset:0;z-index:2000">
+  <div class="modal-card">
+    <h3 id="sel">Book / Enquire</h3>
+    <div class="row" style="margin-top:8px"><input id="mname" placeholder="Your name"><input id="mcontact" placeholder="Phone or email"></div>
+    <div style="margin-top:8px" class="row"><select id="mpeople"><option>2 persons</option><option>3 persons</option></select><input type="date" id="mdate"></div>
+    <div class="actions"><button class="book-btn" onclick="submit()">Send</button><button style="margin-left:8px;padding:10px;border-radius:8px;border:none;background:#eee" onclick="closeModal()">Cancel</button></div>
+  </div>
+</div>
+
+<script>
+function openBook(item){
+  document.getElementById('sel').textContent = item;
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modal').setAttribute('aria-hidden','false');
+}
+function closeModal(){
+  document.getElementById('modal').style.display = 'none';
+  document.getElementById('modal').setAttribute('aria-hidden','true');
+}
+function submit(){
+  const name = document.getElementById('mname').value || 'Guest';
+  const contact = document.getElementById('mcontact').value || 'Not provided';
+  const item = document.getElementById('sel').textContent;
+  alert('Thank you, ' + name + '\\nEnquiry for: ' + item + '\\nWe will contact at: ' + contact);
+  closeModal();
+}
+// close when clicking outside modal
+document.getElementById('modal').addEventListener('click', e => { if(e.target===document.getElementById('modal')) closeModal() });
+</script>
+
+</body>
+</html>

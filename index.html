@@ -1,0 +1,72 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore India - Luxury Travel</title>
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#f5f5f5;}
+nav{width:100%;background:white;padding:15px 50px;box-shadow:0 2px 10px rgba(0,0,0,0.1);display:flex;justify-content:center;gap:40px;position:sticky;top:0;z-index:10;}
+nav a{text-decoration:none;color:#333;font-weight:600;transition:0.3s;}nav a:hover{color:#d4a000;}
+.hero{height:90vh;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80');background-size:cover;background-position:center;display:flex;justify-content:center;align-items:center;flex-direction:column;color:white;text-shadow:0 3px 8px black;}
+.hero h1{font-size:3.5rem;margin:0;}
+.hero p{font-size:1.3rem;margin-top:10px;}
+.section{padding:60px 80px;text-align:center;}
+.section h2{font-size:2.5rem;margin-bottom:30px;color:#333;}
+.destinations{display:flex;justify-content:space-around;flex-wrap:wrap;}
+.place{width:230px;background:white;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);transition:0.3s;overflow:hidden;cursor:pointer;}
+.place:hover{transform:translateY(-10px);box-shadow:0 8px 25px rgba(0,0,0,0.2);}
+.place img{width:100%;height:150px;object-fit:cover;}
+.place h3{padding:15px;margin:0;}
+/* Move Delhi card down slightly */
+.place.delhi{margin-top:30px;}
+.package-box{display:flex;justify-content:space-around;flex-wrap:wrap;}
+.package{width:260px;background:white;border-radius:15px;padding-bottom:20px;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:0.3s;}
+.package:hover{transform:scale(1.05);}
+.package img{width:100%;height:160px;object-fit:cover;}
+.package h3{margin:10px 0;}
+.package button{background:#e6b800;color:white;border:none;padding:10px 20px;border-radius:20px;margin-top:10px;cursor:pointer;transition:0.3s;}
+.package button:hover{background:#caa000;}
+.contact{padding:60px 40px;background:white;text-align:center;}
+.contact h2{font-size:2.2rem;margin-bottom:10px;}
+.contact p{font-size:1.2rem;margin:5px 0;}
+</style>
+</head>
+<body>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#des">Destinations</a>
+    <a href="#packages">Packages</a>
+    <a href="#contact">Contact</a>
+    
+</nav>
+<div class="hero" id="home">
+    <h1>Explore Incredible India</h1>
+    <p>Luxury holidays, unforgettable memories.</p>
+</div>
+<div class="section" id="des">
+    <h2>Top Destinations</h2>
+    <div class="destinations">
+        <div class="place" onclick="location.href='rajasthan.html'"><img src="images/r6.jpg"><h3>Rajasthan</h3></div>
+        <div class="place" onclick="location.href='goa.html'"><img src="images/g3.jpg"><h3>Goa</h3></div>
+        <div class="place" onclick="location.href='kashmir.html'"><img src="images/kas 1.jpg"><h3>Kashmir</h3></div>
+        <div class="place" onclick="location.href='meghalaya.html'"><img src="images/meghalaya 1.jpg"><h3>Meghalaya</h3></div>
+        <div class="place delhi" onclick="location.href='delhi.html'"><img src="images/d2.jpg"><h3>Delhi</h3></div>
+    </div>
+</div>
+<div class="section" id="packages">
+    <h2>Popular Packages</h2>
+    <div class="package-box">
+        <div class="package"><img src="images/r4.jpg"><h3>Royal Rajasthan – 4 Days</h3><button onclick="location.href='raj_package.html'">View Details</button></div>
+        <div class="package"><img src="images/g4.jpg"><h3>Goa Beach Fun – 3 Days</h3><button onclick="location.href='goa_package.html'">View Details</button></div>
+        <div class="package"><img src="images/kas 5.jpg"><h3>Kashmir Luxury Trip – 5 Days</h3><button onclick="location.href='kashmir_package.html'">View Details</button></div>
+    </div>
+</div>
+<div class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@luxtravel.com</p>
+    <p>Phone: +91 9876543210</p>
+</div>
+</body>
+</html>

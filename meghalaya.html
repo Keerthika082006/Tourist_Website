@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meghalaya — CS Trips & Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --leaf:#2f9e44; --muted:#51685a; --card:#fff }
+  *{box-sizing:border-box}
+  body{ margin:0;font-family:'Poppins',sans-serif;background:#f3fbf7;color:#083826 }
+  .hero{ min-height:52vh; background:linear-gradient(0deg, rgba(0,0,0,0.14), rgba(0,0,0,0.02)), url('images/meghalaya\ 1.jpg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:80px 20px }
+  .hero h1{ font-size:40px; margin:0; text-shadow:0 8px 30px rgba(0,0,0,0.3) }
+  .wrap{ max-width:1100px;margin:-40px auto 60px;padding:18px }
+  .layout{ display:grid; grid-template-columns:1fr 320px; gap:22px }
+  @media(max-width:900px){ .layout{ grid-template-columns:1fr } }
+  .card{ background:var(--card); border-radius:12px; box-shadow:0 10px 30px rgba(8,56,38,0.06) }
+  .section-title{ padding:16px 18px; display:flex; justify-content:space-between; align-items:end }
+  .grid{ padding:16px; display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)) }
+  .thumb{ width:100%; height:150px; object-fit:cover; display:block }
+  .book-btn{ margin-top:8px;background:var(--leaf); color:white; border:none;padding:10px;border-radius:8px; font-weight:700; cursor:pointer }
+  .sidebar{ position:sticky; top:86px; align-self:start }
+  .book-box{ padding:12px;border-radius:10px;background:linear-gradient(180deg,#f6fff6,#eef9ef) }
+  .map{ height:220px;border-radius:8px;margin-top:12px;overflow:hidden;border:1px solid #e6f0ea }
+  footer{ text-align:center;padding:24px;color:var(--muted) }
+
+  .modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000 }
+  .modal-card{ width:520px; max-width:96%; background:#fff; padding:18px; border-radius:10px }
+</style>
+</head>
+<body>
+
+<header style="padding:12px 18px; position:sticky;top:0;background:rgba(255,255,255,0.9);z-index:50"><div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between"><div style="font-weight:700;color:#0b6b3a">CS Trips & Tours</div><div><a href="index.html" style="text-decoration:none;color:#083826">Home</a></div></div></header>
+
+<section class="hero"><div><h1>Meghalaya — Land of Clouds & Waterfalls</h1><p style="color:#eaffef;margin-top:6px">Living root bridges, misty hills & lush valleys</p></div></section>
+
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <div class="card">
+        <div class="section-title"><h2>Top Hotels — Meghalaya</h2><p style="color:var(--muted)">Comfort near the hills</p></div>
+        <div class="grid">
+          <div><img class="thumb" src="images/m2.jpg"><div style="padding:12px"><h3>Polo Towers Shillong</h3><p style="color:var(--muted)">Central stay with views</p><button class="book-btn" onclick="openBook('Polo Towers Shillong')">Book</button></div></div>
+
+          <div><img class="thumb" src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?q=80&w=1600&auto=format&fit=crop"><div style="padding:12px"><h3>Cherrapunjee Resort</h3><p style="color:var(--muted)">Near waterfalls & viewpoints</p><button class="book-btn" onclick="openBook('Cherrapunjee Resort')">Book</button></div></div>
+
+          <div><img class="thumb" src="images/m3.jpg"><div style="padding:12px"><h3>Highwinds Shillong</h3><p style="color:var(--muted)">Hilltop boutique hotel</p><button class="book-btn" onclick="openBook('Highwinds Shillong')">Book</button></div></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <div class="section-title"><h2>Must-See — Meghalaya</h2><p style="color:var(--muted)">Nature trails & living root bridges</p></div>
+        <div style="padding:12px">
+          <div style="display:flex;gap:12px;padding:10px"><img src="images/m5.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Nohkalikai Falls</strong><div style="color:var(--muted)">Spectacular waterfall & viewpoint</div></div></div>
+
+          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="images/m6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Mawlynnong Village</strong><div style="color:var(--muted)">Cleanest village — cultural visits</div></div></div>
+
+          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="images/m7.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Living Root Bridge</strong><div style="color:var(--muted)">Unique root bridges & jungle hikes</div></div></div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="sidebar">
+      <div class="card book-box">
+        <h4 style="margin:0">Plan a Meghalaya Trip</h4>
+        <label>Date</label><input type="date" id="medate"><br>
+        <label>Durations</label><select id="medur"><option>3 nights</option><option>4 nights</option></select><br>
+        <label>People</label><input type="number" id="mepeople" min="1" value="2">
+        <button class="book-btn" onclick="openBook('Custom Meghalaya Package')">Send Enquiry</button>
+        <div class="map"><iframe src="https://www.google.com/maps?q=Meghalaya&output=embed" width="100%" height="100%" style="border:0"></iframe></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>© 2025 CS Trips & Tours — Meghalaya</footer>
+
+<div id="modal" class="modal" style="display:none;align-items:center;justify-content:center;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.5)">
+  <div class="modal-card">
+    <h3 id="sel">Booking</h3>
+    <div style="display:flex;gap:8px;margin-top:8px"><input id="mname" placeholder="Your name"><input id="mcontact" placeholder="Phone/email"></div>
+    <div style="display:flex;gap:8px;margin-top:8px"><select id="mnum"><option>2 persons</option><option>3 persons</option></select><input type="date" id="mdate"></div>
+    <div style="text-align:right;margin-top:12px"><button class="book-btn" onclick="submit()">Send</button><button style="margin-left:8px;padding:10px;border-radius:8px;border:none;background:#eee" onclick="closeModal()">Cancel</button></div>
+  </div>
+</div>
+
+<script>
+function openBook(item){
+  document.getElementById('sel').textContent = item;
+  document.querySelector('.modal').style.display = 'flex';
+}
+function closeModal(){ document.querySelector('.modal').style.display = 'none' }
+function submit(){
+  const name = (document.getElementById('mname')||{}).value || 'Guest';
+  const contact = (document.getElementById('mcontact')||{}).value || 'Not provided';
+  const item = document.getElementById('sel').textContent;
+  alert('Thanks ' + name + '\\nEnquiry: ' + item + '\\nContact: ' + contact);
+  closeModal();
+}
+document.querySelector('.modal').addEventListener('click', e => { if(e.target===document.querySelector('.modal')) closeModal() });
+</script>
+
+</body>
+</html>
