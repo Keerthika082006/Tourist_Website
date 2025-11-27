@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hawa Mahal — Jaipur</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- ROOT & BASE ---------- */
+:root{
+    --accent:#c97b2e;
+    --deep:#3b2f2f;
+    --muted:#776a61;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fffaf3;
+    overflow-x:hidden;
+}
+
+/* ---------- PARALLAX HERO ---------- */
+.hero{
+    height:70vh;
+    position:relative;
+    overflow:hidden;
+}
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.2);
+    animation:zoomIn 10s ease forwards;
+}
+@keyframes zoomIn{
+    to{transform:scale(1);}
+}
+.hero .title-box{
+    position:absolute; inset:0;
+    display:flex; justify-content:center; align-items:center;
+    flex-direction:column;
+    color:white;
+    text-shadow:0 4px 25px #0007;
+    animation:fadeUpHero 1.2s ease forwards;
+}
+@keyframes fadeUpHero{
+    from{opacity:0; transform:translateY(40px)}
+    to{opacity:1; transform:none}
+}
+.hero h1{font-size:60px; letter-spacing:-1px;}
+.hero p{font-size:20px; margin-top:10px}
+
+/* ---------- CONTENT CARD ---------- */
+.content{
+    max-width:1000px;
+    margin: -60px auto 60px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.1);
+    animation:fadeInScale 0.9s ease both;
+}
+@keyframes fadeInScale{
+    from{opacity:0; transform:scale(0.96)}
+    to{opacity:1;}
+}
+.content h2{
+    margin-bottom:10px;
+    color:var(--deep);
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.6s;
+}
+.content p, .content ul{
+    color:var(--muted); 
+    line-height:1.8;
+    opacity:0;
+    transform:translateY(30px);
+    transition:0.6s;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+}
+.gallery img{
+    width:100%; height:180px; object-fit:cover;
+    border-radius:12px;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.7s;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+.gallery img:hover{
+    transform:translateY(0) scale(1.05);
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:12px 26px;
+    background:var(--accent);
+    color:white;
+    border-radius:30px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+    opacity:0;
+    transform:translateY(30px);
+}
+.back-btn:hover{
+    background:#a76422;
+    transform:scale(1.06);
+}
+
+/* ---------- SCROLL REVEAL CLASS ---------- */
+.reveal.visible{
+    opacity:1 !important;
+    transform:none !important;
+}
+</style>
+
+</head>
+<body>
+
+<!-- ---------- PARALLAX HERO ---------- -->
+<section class="hero">
+    <img src="images/r1.jpg" id="parallaxImg">
+    <div class="title-box">
+        <h1>Hawa Mahal</h1>
+        <p>The Palace of Winds — Jaipur</p>
+    </div>
+</section>
+
+<!-- ---------- CONTENT ---------- -->
+<div class="content">
+
+    <h2 class="reveal">Overview</h2>
+    <p class="reveal">
+        Hawa Mahal, the “Palace of Winds”, is an iconic structure located in Jaipur.
+        Built in 1799, it features 953 windows designed for royal women to view
+        festivities without being seen. Its unique honeycomb architecture and pink 
+        sandstone exterior make it one of India's most photographed monuments.
+    </p>
+
+    <h2 class="reveal" style="margin-top:30px">Highlights</h2>
+    <ul class="reveal">
+        <li>953 Jharokha windows</li>
+        <li>Beautiful sunrise photography location</li>
+        <li>Symbol of Jaipur’s royal architecture</li>
+        <li>Located in the vibrant old city</li>
+    </ul>
+
+    <h2 class="reveal" style="margin-top:30px">Gallery</h2>
+    <div class="gallery">
+        <img class="reveal" src="images/r1.jpg">
+        <img class="reveal" src="images/raj1.jpg">
+        <img class="reveal" src="images/r2.jpg">
+        <img class="reveal" src="images/rajhotel3.jpg">
+    </div>
+
+    <a href="index.html" class="back-btn reveal">← Back to Rajasthan</a>
+
+</div>
+
+<script>
+// ---------- PARALLAX EFFECT ----------
+document.addEventListener("scroll", ()=>{
+    let scrollY = window.scrollY;
+    document.getElementById("parallaxImg").style.transform =
+        `translateY(${scrollY * 0.28}px) scale(1.2)`;
+});
+
+// ---------- SCROLL REVEAL ----------
+const elements = document.querySelectorAll('.reveal');
+function revealElements(){
+    let trigger = window.innerHeight * 0.88;
+    elements.forEach(el=>{
+        let top = el.getBoundingClientRect().top;
+        if(top < trigger){
+            el.classList.add('visible');
+        }
+    });
+}
+window.addEventListener("scroll", revealElements);
+revealElements();
+
+// ---------- GALLERY ZOOM POPUP ----------
+document.querySelectorAll(".gallery img").forEach(img=>{
+    img.addEventListener("click", ()=>openImage(img.src));
+});
+
+function openImage(src){
+    let overlay = document.createElement("div");
+    overlay.style.position="fixed";
+    overlay.style.inset="0";
+    overlay.style.background="rgba(0,0,0,0.75)";
+    overlay.style.display="flex";
+    overlay.style.justifyContent="center";
+    overlay.style.alignItems="center";
+    overlay.style.zIndex="9999";
+    overlay.style.animation="fadeIn 0.4s ease";
+
+    let bigger = document.createElement("img");
+    bigger.src = src;
+    bigger.style.maxWidth="90%";
+    bigger.style.maxHeight="80%";
+    bigger.style.borderRadius="14px";
+    bigger.style.boxShadow="0 8px 40px rgba(0,0,0,0.5)";
+    bigger.style.animation="scaleIn 0.4s ease";
+
+    overlay.appendChild(bigger);
+    document.body.appendChild(overlay);
+
+    overlay.onclick = ()=>overlay.remove();
+
+    // Create animations
+    let style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+        @keyframes scaleIn{ from{transform:scale(0.85)} to{transform:scale(1)} }
+    `;
+    document.head.appendChild(style);
+}
+</script>
+
+</body>
+</html>

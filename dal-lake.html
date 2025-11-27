@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dal Lake – Kashmir</title>
+<style>
+    body{
+        margin:0;
+        font-family: Poppins, sans-serif;
+        background:#f3f7fb;
+        animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+        from{opacity:0; transform:translateY(10px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .header{
+        height:250px;
+        background:url('images/k4.jpg') center/cover no-repeat;
+        border-bottom-left-radius:20px;
+        border-bottom-right-radius:20px;
+        position:relative;
+    }
+
+    .header h1{
+        position:absolute;
+        bottom:20px;
+        left:20px;
+        color:white;
+        font-size:32px;
+        text-shadow:0 3px 6px rgba(0,0,0,0.4);
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .section{
+        background:white;
+        padding:18px;
+        border-radius:14px;
+        margin-top:18px;
+        box-shadow:0 3px 10px rgba(0,0,0,0.08);
+        animation: slideUp 0.8s;
+    }
+
+    @keyframes slideUp{
+        from{opacity:0; transform:translateY(15px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    .gallery{
+        display:flex;
+        gap:12px;
+        overflow-x:auto;
+        padding-bottom:5px;
+    }
+    .gallery img{
+        width:200px;
+        height:220px;
+        border-radius:12px;
+        object-fit:cover;
+        transition:0.3s;
+    }
+    .gallery img:hover{
+        transform:scale(1.08);
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .highlight{
+        background:#e3f2ff;
+        padding:6px 10px;
+        border-radius:6px;
+        display:inline-block;
+        margin-top:10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Dal Lake</h1>
+</div>
+
+<div class="container">
+
+    <div class="section">
+        <h2>About Dal Lake</h2>
+        <p>
+            Dal Lake is the heart of Srinagar, famous for its stunning mountain reflections, 
+            floating gardens, and the iconic Shikara rides. It is one of the most peaceful and 
+            photogenic places in India.
+        </p>
+        <div class="highlight">⭐ Best time to visit: March – June</div>
+    </div>
+
+    <div class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="images/k4.jpg">
+            <img src="images/KK1.jpg">
+            <img src="images/KK2.jpg">
+            <img src="images/KK3.jpg">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Things to do</h2>
+        <ul>
+            <li>Shikara ride across the lake</li>
+            <li>Visit floating vegetable markets</li>
+            <li>Stay in the traditional Kashmiri houseboats</li>
+            <li>Try authentic Kahwa tea</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>

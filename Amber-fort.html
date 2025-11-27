@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amber Fort — Rajasthan Heritage</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#fff8ef; --accent:#c47b27; --dark:#7a5631 }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ font-family:'Poppins',sans-serif;background:var(--bg);color:#2b2b2b;overflow-x:hidden }
+
+  /* Hero */
+  .hero{ height:70vh;background:url('images/RR1.jpg') center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;color:white;text-align:center }
+  .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.4)}
+  .hero h1{position:relative;font-size:48px;text-shadow:0 10px 30px rgba(0,0,0,0.4);opacity:0;transform:translateY(40px);transition:1s}
+  .hero p{position:relative;margin-top:10px;font-size:18px;opacity:0;transform:translateY(40px);transition:1.3s}
+
+  .section{max-width:1100px;margin:60px auto;padding:0 20px;opacity:0;transform:translateY(50px);transition:1s}
+  .section h2{color:var(--accent);margin-bottom:12px;font-size:30px}
+  .section p{line-height:1.8;color:var(--dark)}
+
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+  .gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;transition:.5s;filter:brightness(.85)}
+  .gallery img:hover{transform:scale(1.05);filter:brightness(1)}
+
+  footer{text-align:center;margin:40px 0;color:var(--dark)}
+
+  /* JS scroll reveal */
+  .show{opacity:1 !important;transform:translateY(0) !important}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div>
+    <h1>Amber Fort, Jaipur</h1>
+    <p>The Royal Hilltop Fortress of Rajputana Glory</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>About Amber Fort</h2>
+  <p>
+    Amber Fort, also known as Amer Fort, is one of the most magnificent palaces in Rajasthan. 
+    Built in 1592 by Raja Man Singh I, the fort is renowned for its artistic blend of Hindu and Mughal architecture. 
+    With its golden sandstone walls, mirror palace halls, sprawling courtyards, and majestic gates, the fort stands as a symbol of Jaipur’s royal legacy.
+  </p>
+  <p style="margin-top:10px">
+    The fort overlooks Maota Lake and features attractions such as the Sheesh Mahal (Mirror Palace), Diwan-e-Aam, Diwan-e-Khas, Shila Devi temple, and intricately carved frescoes. 
+    Its evening light-and-sound show is a stunning narration of its glorious past.
+  </p>
+</section>
+
+<section class="section">
+  <h2>Highlights</h2>
+  <div class="gallery">
+    <img src="images/RR2.jpg">
+    <img src="images/RR3.jpg">
+    <img src="images/RR4.jpg">
+    <img src="images/RR1.jpg">
+  </div>
+</section>
+
+<section class="section">
+  <h2>Visitor Information</h2>
+  <p>
+    • Timings: 8:00 AM – 6:00 PM<br>
+    • Light & Sound Show: 7:00 PM (Hindi & English)<br>
+    • Best time to visit: October – March<br>
+    • Entry Fee: ₹100 – ₹500 based on nationality & show options
+  </p>
+</section>
+
+<footer>© 2025 Rajasthan Heritage Tours</footer>
+
+<script>
+// Hero reveal
+window.addEventListener('load',()=>{
+  document.querySelector('.hero h1').classList.add('show');
+  document.querySelector('.hero p').classList.add('show');
+});
+
+// Scroll reveal for sections
+const sections=document.querySelectorAll('.section');
+const reveal=()=>{
+  sections.forEach(sec=>{
+    const rect=sec.getBoundingClientRect();
+    if(rect.top < window.innerHeight - 100){ sec.classList.add('show'); }
+  })
+};
+window.addEventListener('scroll',reveal);
+reveal();
+</script>
+
+</body>
+</html>

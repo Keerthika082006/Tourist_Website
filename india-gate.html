@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>India Gate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e6edf3);
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(to right, #ff9966, #ff5e62);
+      color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2em;
+      opacity: 0.8;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .image-section {
+      position: relative;
+      overflow: hidden;
+      max-height: 500px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 1.2s ease;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 30px 20px;
+    }
+
+    .content h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #ff5e62;
+    }
+
+    .content p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0;}
+      100% { opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .gallery {
+        flex-direction: column;
+      }
+      .gallery img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>India Gate</h1>
+  <p>The Iconic War Memorial of Delhi</p>
+</header>
+
+<main>
+  <div class="image-section">
+    <img src="images/DD1.jpg" alt="India Gate">
+  </div>
+
+  <div class="content">
+    <h2>About India Gate</h2>
+    <p>India Gate is a 42-meter tall war memorial located in the heart of New Delhi, built in memory of the Indian soldiers who sacrificed their lives during World War I. It stands as a symbol of bravery and national pride, surrounded by lush green lawns that are perfect for picnics and leisurely walks.</p>
+    <p>Designed by Sir Edwin Lutyens and inaugurated in 1931, India Gate has become one of Delhi's most visited landmarks. The structure is especially beautiful at night when illuminated, creating a mesmerizing view for tourists and locals alike.</p>
+
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="images/DD2.jpg" alt="India Gate - Front View">
+      <img src="images/DD3.jpg" alt="India Gate - Night View">
+      <img src="images/DD4.jpg" alt="India Gate - Surroundings">
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

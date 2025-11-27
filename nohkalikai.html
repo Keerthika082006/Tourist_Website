@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nohkalikai Falls — CS Trips & Tours</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: #f0f8ff;
+  color:#333;
+  overflow-x:hidden;
+}
+
+/* Hero section */
+.hero {
+  background: linear-gradient(135deg, #a0eaff, #fff7f0);
+  padding:80px 20px;
+  text-align:center;
+  border-bottom:3px solid #a0eaff;
+}
+
+.hero h1 {
+  font-size:48px;
+  margin-bottom:12px;
+  color:#045d7d;
+  animation:fadeInDown 1s forwards;
+}
+
+.hero p {
+  font-size:20px;
+  color:#333;
+  animation:fadeInUp 1s forwards;
+}
+
+@keyframes fadeInDown {
+  0% {opacity:0; transform:translateY(-50px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+@keyframes fadeInUp {
+  0% {opacity:0; transform:translateY(50px);}
+  100% {opacity:1; transform:translateY(0);}
+}
+
+/* Content section */
+.section {
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+/* Info box */
+.info-box {
+  background:#ffffff;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom:40px;
+  transform:translateY(30px);
+  opacity:0;
+  transition:all 0.8s ease;
+}
+
+.info-box.visible {
+  transform:translateY(0);
+  opacity:1;
+}
+
+.info-box h2 {
+  color:#045d7d;
+  margin-bottom:15px;
+}
+.info-box p {
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+/* Gallery */
+.gallery {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+.gallery img {
+  width:400px;
+  height:250px;
+  border-radius:16px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery img:hover {
+  transform:scale(1.05) rotate(-1deg);
+  box-shadow:0 15px 35px rgba(4,93,125,0.4);
+}
+
+@media(max-width:900px){
+  .gallery img {
+    width:100%;
+    height:auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Nohkalikai Falls</h1>
+  <p>Majestic waterfalls amidst lush Khasi hills — adventure, photography & nature</p>
+</section>
+
+<div class="section">
+  <div class="info-box">
+    <h2>About Nohkalikai Falls</h2>
+    <p>Nohkalikai Falls is the tallest plunge waterfall in India, located near Cherrapunjee, Meghalaya. The water drops from a height of 340 meters amidst lush green cliffs.</p>
+    <p>During monsoon, the falls are full of cascading water, surrounded by mist and rainbows. Ideal for trekking, photography, and nature enthusiasts.</p>
+    <p>Local legends say the waterfall is named after a tragic tale, adding a mysterious charm to the natural beauty.</p>
+  </div>
+
+  <div class="info-box">
+    <h2>Things to Do</h2>
+    <p><strong>Trekking:</strong> Trails through forested paths with cliff viewpoints.</p>
+    <p><strong>Photography:</strong> Capture rainbows, mist, and panoramic views.</p>
+    <p><strong>Relax:</strong> Peaceful nature walks along the river at the base.</p>
+  </div>
+</div>
+
+<div class="section gallery">
+  <img src="images/MM1.jpg" alt="Falls">
+  <img src="images/MM2.jpg" alt="Misty View">
+  <img src="images/MM3.jpg" alt="Cliffs & Stream">
+  <img src="images/MM4.jpg" alt="Rainbow">
+  
+</div>
+
+<script>
+// Section scroll animation
+const boxes = document.querySelectorAll('.info-box');
+window.addEventListener('scroll', () => {
+  const triggerBottom = window.innerHeight * 0.85;
+  boxes.forEach(box => {
+    const boxTop = box.getBoundingClientRect().top;
+    if(boxTop < triggerBottom) box.classList.add('visible');
+  });
+});
+</script>
+
+</body>
+</html>

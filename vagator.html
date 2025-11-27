@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vagator Beach</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to bottom, #d7f2ff, #fff9e8);
+        color: #2b2b2b;
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    .hero {
+        height: 320px;
+        background: url('images/GG11.jpg') center/cover no-repeat;
+        display: flex;
+        align-items: flex-end;
+        padding: 40px;
+        box-shadow: inset 0 -100px 120px rgba(255,255,255,0.7);
+        animation: fadeIn 1.5s;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+        font-weight: 700;
+        color: #1a2d4d;
+        text-shadow: 0 3px 10px rgba(255,255,255,0.6);
+        animation: slideUp 1.2s ease;
+        background: rgba(255,255,255,0.6);
+        padding: 8px 16px;
+        border-radius: 12px;
+    }
+
+    .content {
+        padding: 25px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .section-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: #114b8f;
+        margin-bottom: 10px;
+        animation: glowIn 1s;
+    }
+
+    /* INFO CARD */
+    .info-card {
+        padding: 20px;
+        border-radius: 18px;
+        background: white;
+        border: 1px solid #e5e5e5;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        transform: translateY(40px);
+        opacity: 0;
+        transition: 0.8s ease;
+    }
+    .info-card.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* PHOTO GRID */
+    .photo-grid {
+        margin-top: 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 18px;
+    }
+
+    .photo-grid img {
+        width: 100%;
+        height: 170px;
+        border-radius: 12px;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+
+    .photo-grid img:hover {
+        transform: scale(1.07);
+        box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+        filter: brightness(1.1);
+    }
+
+    /* WIDE IMAGE */
+    .wide-img {
+        margin-top: 35px;
+        width: 100%;
+        height: 280px;
+        border-radius: 18px;
+        object-fit: cover;
+        transform: scale(0.9);
+        opacity: 0;
+        transition: 0.9s;
+    }
+    .wide-img.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /* WAVY DIVIDER */
+    .wave {
+        margin: 50px 0;
+    }
+
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    @keyframes slideUp { from { opacity:0; transform:translateY(40px);} to { opacity:1; transform:translateY(0);} }
+    @keyframes glowIn { from { opacity:0; letter-spacing:-2px;} to { opacity:1; letter-spacing:1px;} }
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Vagator Beach</h1>
+</div>
+
+<div class="content">
+
+    <!-- ABOUT SECTION -->
+    <h2 class="section-title">About Vagator</h2>
+
+    <div class="info-card reveal">
+        <p>
+            Vagator Beach is known for its bright red cliffs, sweeping ocean views, 
+            peaceful vibe and artistic cafés. Unlike the crowded party zones, 
+            Vagator offers a perfect mix of nature, calmness and culture.
+        </p>
+        <p>
+            The clifftop sunset view point is one of the best in all of Goa, 
+            attracting travellers, photographers and adventure seekers every evening.
+        </p>
+    </div>
+
+    <!-- WAVE DIVIDER -->
+    <svg class="wave" height="60" width="100%">
+        <path d="M0 20 Q 250 60 500 20 T 1000 20 V60 H0 Z" fill="#fff"></path>
+    </svg>
+
+    <!-- PHOTO GRID -->
+    <h2 class="section-title">Vagator Highlights</h2>
+
+    <div class="photo-grid">
+        <img src="images/GG7.jpg">
+        <img src="images/GG9.jpg">
+        <img src="images/GG8.jpg">
+        <img src="images/GG12.jpg">
+       
+    </div>
+
+    <!-- WIDE SCENIC IMAGE -->
+    <img src="images/GG11.jpg" class="wide-img reveal">
+
+    <!-- EXTRA INFO -->
+    <div class="info-card reveal" style="margin-top:35px;">
+        <h3 style="color:#1e5aa8;">Why You’ll Love Vagator</h3>
+        <ul>
+            <li>🌅 Stunning clifftop sunsets</li>
+            <li>🏖 Calm beaches & spacious coastlines</li>
+            <li>🛵 Near Chapora Fort & Anjuna</li>
+            <li>🍹 Beautiful cliff cafés</li>
+            <li>📸 Perfect for sunset photography</li>
+            <li>🎶 Peaceful, chill atmosphere (not too crowded)</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- JS FOR SCROLL REVEAL -->
+<script>
+    const items = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+        items.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                el.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+</script>
+
+</body>
+</html>

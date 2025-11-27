@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gulmarg — CS Trips & Tours</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#eef6ff; /* soft ice blue */
+  color:#1c3557;
+}
+
+/* Hero Section */
+.hero{
+  height:50vh;
+  background:url('images/k5.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.hero h1{
+  position:relative;
+  color:white;
+  font-size:42px;
+  margin:0;
+  animation:fadeDown 1.3s ease;
+}
+
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-25px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Content Wrapper */
+.wrap{
+  max-width:1100px;
+  margin:50px auto;
+  padding:20px;
+}
+
+/* Info Box */
+.info-box{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  animation:fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.info-box h2{
+  margin-top:0;
+  color:#0b4c8c;
+}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:transform .4s, box-shadow .3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.06);
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Highlight Sections */
+.card{
+  background:white;
+  padding:20px;
+  margin-top:30px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+  animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* Button */
+.book-btn{
+  margin-top:12px;
+  background:#0b4c8c;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.book-btn:hover{
+  background:#0a3f75;
+}
+
+/* Animation on Scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>Gulmarg — Snow Paradise</h1>
+</section>
+
+<div class="wrap">
+
+  <div class="info-box reveal">
+    <h2>About Gulmarg</h2>
+    <p>
+      Gulmarg, known as the <strong>"Heart of Winter Sports in India"</strong>, is a breathtaking hill station
+      surrounded by snow-capped mountains, pine forests, and vast ski slopes.
+      It is one of the top skiing destinations in Asia with the world-famous Gulmarg Gondola —
+      one of the highest cable cars on Earth.
+    </p>
+    <p>
+      Whether it's snow activities, serene hikes, or stunning photography, Gulmarg offers a perfect blend of
+      nature and adventure.
+    </p>
+  </div>
+
+  <div class="card reveal">
+    <h2>Photo Gallery</h2>
+    <div class="gallery">
+      <img src="images/k5.jpg">
+      <img src="images/k2.jpg">
+      <img src="images/k4.jpg">
+      <img src="https://images.pexels.com/photos/1434603/pexels-photo-1434603.jpeg?q=80&w=1200">
+    </div>
+  </div>
+
+  <div class="card reveal">
+    <h2>Things to Do</h2>
+    <ul>
+      <li>❄ Skiing & Snowboarding (Asia’s best slopes)</li>
+      <li>🚡 Gondola Ride (world’s 2nd highest)</li>
+      <li>🌲 Snow treks & forest trails</li>
+      <li>🏔 Photography in the snow valleys</li>
+      <li>☕ Cozy cafés with mountain views</li>
+    </ul>
+  </div>
+
+
+
+</div>
+
+<script>
+// Reveal on Scroll
+function reveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight - 80;
+    if(top < windowHeight){ el.classList.add('visible'); }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+reveal();
+</script>
+
+</body>
+</html>
