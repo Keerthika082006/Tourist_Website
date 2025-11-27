@@ -8,7 +8,7 @@
   :root{ --leaf:#2f9e44; --muted:#51685a; --card:#fff }
   *{box-sizing:border-box}
   body{ margin:0;font-family:'Poppins',sans-serif;background:#f3fbf7;color:#083826 }
-  .hero{ min-height:52vh; background:linear-gradient(0deg, rgba(0,0,0,0.14), rgba(0,0,0,0.02)), url('meghalaya\ 1.jpg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:80px 20px }
+  .hero{ min-height:52vh; background:linear-gradient(0deg, rgba(0,0,0,0.14), rgba(0,0,0,0.02)), url('images/meghalaya\ 1.jpg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:80px 20px }
   .hero h1{ font-size:40px; margin:0; text-shadow:0 8px 30px rgba(0,0,0,0.3) }
   .wrap{ max-width:1100px;margin:-40px auto 60px;padding:18px }
   .layout{ display:grid; grid-template-columns:1fr 320px; gap:22px }
@@ -39,36 +39,92 @@
       <div class="card">
         <div class="section-title"><h2>Top Hotels — Meghalaya</h2><p style="color:var(--muted)">Comfort near the hills</p></div>
         <div class="grid">
-          <div><img class="thumb" src="m2.jpg"><div style="padding:12px"><h3>Polo Towers Shillong</h3><p style="color:var(--muted)">Central stay with views</p><button class="book-btn" onclick="openBook('Polo Towers Shillong')">Book</button></div></div>
+          <div><img class="thumb" src="images/m2.jpg"><div style="padding:12px"><h3>Polo Towers Shillong</h3><p style="color:var(--muted)">Central stay with views</p><button class="book-btn" onclick="openBook('Polo Towers Shillong')">Book</button></div></div>
 
           <div><img class="thumb" src="https://images.pexels.com/photos/460376/pexels-photo-460376.jpeg?q=80&w=1600&auto=format&fit=crop"><div style="padding:12px"><h3>Cherrapunjee Resort</h3><p style="color:var(--muted)">Near waterfalls & viewpoints</p><button class="book-btn" onclick="openBook('Cherrapunjee Resort')">Book</button></div></div>
 
-          <div><img class="thumb" src="m3.jpg"><div style="padding:12px"><h3>Highwinds Shillong</h3><p style="color:var(--muted)">Hilltop boutique hotel</p><button class="book-btn" onclick="openBook('Highwinds Shillong')">Book</button></div></div>
+          <div><img class="thumb" src="images/m3.jpg"><div style="padding:12px"><h3>Highwinds Shillong</h3><p style="color:var(--muted)">Hilltop boutique hotel</p><button class="book-btn" onclick="openBook('Highwinds Shillong')">Book</button></div></div>
         </div>
       </div>
 
       <div class="card" style="margin-top:14px">
-        <div class="section-title"><h2>Must-See — Meghalaya</h2><p style="color:var(--muted)">Nature trails & living root bridges</p></div>
-        <div style="padding:12px">
-          <div style="display:flex;gap:12px;padding:10px"><img src="m5.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Nohkalikai Falls</strong><div style="color:var(--muted)">Spectacular waterfall & viewpoint</div></div></div>
+  <div class="section-title">
+      <h2>Must-See — Meghalaya</h2>
+      <p style="color:var(--muted)">Nature trails & living root bridges</p>
+  </div>
 
-          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="m6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Mawlynnong Village</strong><div style="color:var(--muted)">Cleanest village — cultural visits</div></div></div>
+  <div style="padding:12px">
 
-          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="m7.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Living Root Bridge</strong><div style="color:var(--muted)">Unique root bridges & jungle hikes</div></div></div>
+    <!-- Nohkalikai Falls -->
+    <a href="nohkalikai.html" style="text-decoration:none;color:inherit;">
+      <div style="display:flex;gap:12px;padding:10px;cursor:pointer">
+        <img src="images/m5.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px">
+        <div>
+          <strong>Nohkalikai Falls</strong>
+          <div style="color:var(--muted)">Spectacular waterfall & viewpoint</div>
         </div>
       </div>
+    </a>
+
+    <!-- Mawlynnong Village -->
+    <a href="mawlynnong.html" style="text-decoration:none;color:inherit;">
+      <div style="display:flex;gap:12px;padding:10px;margin-top:8px;cursor:pointer">
+        <img src="images/m6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px">
+        <div>
+          <strong>Mawlynnong Village</strong>
+          <div style="color:var(--muted)">Cleanest village — cultural visits</div>
+        </div>
+      </div>
+    </a>
+
+    
+
+  </div>
+</div>
+
     </main>
 
     <aside class="sidebar">
-      <div class="card book-box">
-        <h4 style="margin:0">Plan a Meghalaya Trip</h4>
-        <label>Date</label><input type="date" id="medate"><br>
-        <label>Durations</label><select id="medur"><option>3 nights</option><option>4 nights</option></select><br>
-        <label>People</label><input type="number" id="mepeople" min="1" value="2">
-        <button class="book-btn" onclick="openBook('Custom Meghalaya Package')">Send Enquiry</button>
-        <div class="map"><iframe src="https://www.google.com/maps?q=Meghalaya&output=embed" width="100%" height="100%" style="border:0"></iframe></div>
+  <div class="card book-box">
+    <h4 style="margin:0 0 10px 0;">Plan a Meghalaya Trip</h4>
+
+    <div style="display:flex; flex-direction:column; gap:10px;">
+
+      <div style="display:flex; flex-direction:column;">
+        <label>Date</label>
+        <input type="date" id="medate" 
+               style="padding:10px;border:1px solid #d4e6dd;border-radius:8px;width:100%;">
       </div>
-    </aside>
+
+      <div style="display:flex; flex-direction:column;">
+        <label>Duration</label>
+        <select id="medur" 
+                style="padding:10px;border:1px solid #d4e6dd;border-radius:8px;width:100%;">
+          <option>3 nights</option>
+          <option>4 nights</option>
+        </select>
+      </div>
+
+      <div style="display:flex; flex-direction:column;">
+        <label>People</label>
+        <input type="number" id="mepeople" min="1" value="2"
+               style="padding:10px;border:1px solid #d4e6dd;border-radius:8px;width:100%;">
+      </div>
+
+      <button class="book-btn" style="width:100%;margin-top:5px;"
+              onclick="openBook('Custom Meghalaya Package')">
+        Send Enquiry
+      </button>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Meghalaya&output=embed"
+                width="100%" height="100%" style="border:0"></iframe>
+      </div>
+
+    </div>
+  </div>
+</aside>
+
   </div>
 </div>
 
@@ -99,7 +155,7 @@ function submit(){
 document.querySelector('.modal').addEventListener('click', e => { if(e.target===document.querySelector('.modal')) closeModal() });
 </script>
 
+
+
 </body>
-
 </html>
-
