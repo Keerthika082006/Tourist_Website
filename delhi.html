@@ -8,7 +8,7 @@
   :root{ --marble:#f7f3ef; --accent:#a8452a; --muted:#6a5b50 }
   *{box-sizing:border-box}
   body{ margin:0;font-family:'Poppins',sans-serif;background:var(--marble);color:#2b2b2b }
-  .hero{ min-height:52vh; background:linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.02)), url('delhi.jpg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:80px 20px }
+  .hero{ min-height:52vh; background:linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.02)), url('images/delhi.jpg') center/cover no-repeat; display:flex;align-items:center;justify-content:center;color:white;text-align:center;padding:80px 20px }
   .hero h1{ font-size:40px;margin:0;text-shadow:0 8px 30px rgba(0,0,0,0.3) }
   .wrap{ max-width:1100px;margin:-40px auto 60px;padding:18px }
   .layout{ display:grid; grid-template-columns:1fr 320px; gap:22px }
@@ -39,36 +39,88 @@
       <div class="card">
         <div class="section-title"><h2>Top Hotels — Delhi</h2><p style="color:var(--muted)">Luxury & central locations</p></div>
         <div class="grid">
-          <div><img class="thumb" src="d3.jpg"><div style="padding:12px"><h3>Leela Palace</h3><p style="color:var(--muted)">Diplomatic enclave luxury</p><button class="book-btn" onclick="openBook('Leela Palace')">Book</button></div></div>
+          <div><img class="thumb" src="images/d3.jpg"><div style="padding:12px"><h3>Leela Palace</h3><p style="color:var(--muted)">Diplomatic enclave luxury</p><button class="book-btn" onclick="openBook('Leela Palace')">Book</button></div></div>
 
-          <div><img class="thumb" src="d4.jpg"><div style="padding:12px"><h3>Taj Palace</h3><p style="color:var(--muted)">Iconic heritage hospitality</p><button class="book-btn" onclick="openBook('Taj Palace')">Book</button></div></div>
+          <div><img class="thumb" src="images/d4.jpg"><div style="padding:12px"><h3>Taj Palace</h3><p style="color:var(--muted)">Iconic heritage hospitality</p><button class="book-btn" onclick="openBook('Taj Palace')">Book</button></div></div>
 
-          <div><img class="thumb" src="d5.jpg"><div style="padding:12px"><h3>ITC Maurya</h3><p style="color:var(--muted)">Elegant rooms & dining</p><button class="book-btn" onclick="openBook('ITC Maurya')">Book</button></div></div>
+          <div><img class="thumb" src="images/d5.jpg"><div style="padding:12px"><h3>ITC Maurya</h3><p style="color:var(--muted)">Elegant rooms & dining</p><button class="book-btn" onclick="openBook('ITC Maurya')">Book</button></div></div>
         </div>
       </div>
+<div class="card" style="margin-top:14px">
+  <div class="section-title">
+    <h2>Must-Visit — Delhi</h2>
+    <p style="color:var(--muted)">Iconic monuments & markets</p>
+  </div>
+  <div style="padding:12px">
 
-      <div class="card" style="margin-top:14px">
-        <div class="section-title"><h2>Must-Visit — Delhi</h2><p style="color:var(--muted)">Iconic monuments & markets</p></div>
-        <div style="padding:12px">
-          <div style="display:flex;gap:12px;padding:10px"><img src="d6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>India Gate</strong><div style="color:var(--muted)">War memorial & open lawns</div></div></div>
-
-          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="d7.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Red Fort</strong><div style="color:var(--muted)">Mughal architecture & history</div></div></div>
-
-          <div style="display:flex;gap:12px;padding:10px;margin-top:8px"><img src="d8.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px"><div><strong>Qutub Minar</strong><div style="color:var(--muted)">UNESCO monument & gardens</div></div></div>
+    <a href="india-gate.html" style="text-decoration:none;color:inherit">
+      <div style="display:flex;gap:12px;padding:10px;cursor:pointer">
+        <img src="images/d6.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px">
+        <div>
+          <strong>India Gate</strong>
+          <div style="color:var(--muted)">War memorial & open lawns</div>
         </div>
       </div>
+    </a>
+
+    <a href="redfort.html" style="text-decoration:none;color:inherit">
+      <div style="display:flex;gap:12px;padding:10px;margin-top:8px;cursor:pointer">
+        <img src="images/d7.jpg" style="width:110px;height:80px;object-fit:cover;border-radius:8px">
+        <div>
+          <strong>Red Fort</strong>
+          <div style="color:var(--muted)">Mughal architecture & history</div>
+        </div>
+      </div>
+    </a>
+
+    
+
+  </div>
+</div>
+
     </main>
 
     <aside class="sidebar">
-      <div class="card book-box">
-        <h4 style="margin:0">Plan your Delhi Visit</h4>
-        <label>Date</label><input type="date" id="ddate"><br>
-        <label>Duration</label><select id="ddur"><option>2 nights</option><option>3 nights</option></select><br>
-        <label>People</label><input type="number" id="dpeople" min="1" value="2">
-        <button class="book-btn" onclick="openBook('Custom Delhi Package')">Send Enquiry</button>
-        <div class="map"><iframe src="https://www.google.com/maps?q=Delhi&output=embed" width="100%" height="100%" style="border:0"></iframe></div>
+  <div class="card book-box">
+    <h4 style="margin:0 0 10px 0;">Plan your Delhi Visit</h4>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <div style="display:flex; flex-direction:column;">
+        <label>Date</label>
+        <input type="date" id="ddate"
+               style="padding:10px;border:1px solid #e3d6cf;border-radius:8px;width:100%;">
       </div>
-    </aside>
+
+      <div style="display:flex; flex-direction:column;">
+        <label>Duration</label>
+        <select id="ddur"
+                style="padding:10px;border:1px solid #e3d6cf;border-radius:8px;width:100%;">
+          <option>2 nights</option>
+          <option>3 nights</option>
+        </select>
+      </div>
+
+      <div style="display:flex; flex-direction:column;">
+        <label>People</label>
+        <input type="number" id="dpeople" min="1" value="2"
+               style="padding:10px;border:1px solid #e3d6cf;border-radius:8px;width:100%;">
+      </div>
+
+      <button class="book-btn" style="width:100%;margin-top:5px;"
+              onclick="openBook('Custom Delhi Package')">
+        Send Enquiry
+      </button>
+
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Delhi&output=embed"
+                width="100%" height="100%" style="border:0"></iframe>
+      </div>
+
+    </div>
+  </div>
+</aside>
+
   </div>
 </div>
 
@@ -100,5 +152,4 @@ document.querySelector('.modal').addEventListener('click', e => { if(e.target===
 </script>
 
 </body>
-
 </html>
